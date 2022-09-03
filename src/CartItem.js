@@ -3,8 +3,8 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import "bootstrap-icons/font/bootstrap-icons.css";
 
 class CartItem extends React.Component {
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
         this.state = {
             price: 999,
             title: 'Phone',
@@ -14,16 +14,23 @@ class CartItem extends React.Component {
         // this.increase_quantity = this.increase_quantity.bind(this);
         // this.decrease_quantity = this.decrease_quantity.bind(this);
     }
-    increase_quantity = ()=>  {
-        this.state.qty += 1;
-        console.log(this.state.qty);
+    increase_quantity = () =>  {
+        // this.setState({qty:this.state.qty+1});
+        this.setState((previous_state)=>{
+            return {
+                qty: previous_state.qty + 1  
+            }          
+        });
     }
-    decrease_quantity = ()=> {
-        if (this.state.qty == 0){
+    decrease_quantity = () => {
+        if (this.state.qty === 0){
             return;
         }
-        this.state.qty -= 1;
-        console.log(this.state.qty);
+        this.setState((previous_state)=>{
+            return {
+                qty: previous_state.qty - 1  
+            }          
+        });
     }
     render() {
         const { price, title, qty, img } = this.state;
