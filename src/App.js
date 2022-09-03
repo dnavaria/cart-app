@@ -1,5 +1,5 @@
 import './App.css';
-import CartItem from './CartItem';
+import Cart from './Cart';
 
 function App() {
   return (
@@ -7,7 +7,7 @@ function App() {
       <header className="App-header">
         <h1>Cart APP</h1>
         </header>
-      <CartItem/>
+      <Cart/>
     </div>
   );
 }
